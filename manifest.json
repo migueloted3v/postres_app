@@ -1,0 +1,13 @@
+{
+  "name": "Postres",
+  "short_name": "Postres",
+  "version": "1.0.0",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#F5F1F3",
+  "theme_color": "#9C2F55",
+  "icons": [
+    { "src": "icon.png", "sizes": "512x512", "type": "image/png", "purpose": "any maskable" }
+  ]
+}
