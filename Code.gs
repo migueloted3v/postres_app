@@ -1,21 +1,22 @@
 /**
  * Postres App — servicio web (Google Apps Script)
- * Versión: 1.0.0
+ * Versión: 1.0.2
  *
  * Vive pegado a tu hoja de cálculo (Extensiones → Apps Script).
  * La app le manda y le pide datos con una clave; no necesita iniciar sesión con Google.
  *
  * Primera vez:
  *   1. Pega este archivo completo en el editor de Apps Script.
- *   2. Ejecuta la función configurar(): crea todas las pestañas, la pestaña Cuenta
- *      y la clave de acceso (la ves en Ver → Registros).
+ *   2. Guarda, regresa a la hoja y recárgala. En el menú nuevo "Postres" elige
+ *      "Configurar y ver clave": crea las pestañas y te muestra la clave de acceso.
+ *      (También puedes ejecutar configurar() aquí; la clave sale en el registro.)
  *   3. Implementar → Nueva implementación → Aplicación web
  *      (Ejecutar como: Yo · Quién tiene acceso: Cualquier persona).
  *   4. Pega la URL /exec y la clave en Ajustes de la app.
  *   5. Llena los valores de la pestaña Cuenta (CLABE, beneficiario, etc.).
  */
 
-const SCRIPT_VERSION = '1.0.0';
+const SCRIPT_VERSION = '1.0.2';
 const TZ = 'America/Mexico_City';
 
 let _tzHoja = null;
@@ -45,6 +46,24 @@ const LLAVES = { CatalogoInsumos: [0], Productos: [0], Recetas: [0, 1], Clientes
 
 // Renglones de la pestaña Cuenta (el valor lo llenas tú en la hoja)
 const CAMPOS_CUENTA = ['CLABE', 'Beneficiario', 'Institución', 'Celular (Dimo)'];
+
+/* ---------- Menú en la hoja ---------- */
+
+/** Agrega el menú "Postres" a la hoja de cálculo. */
+function onOpen() {
+  SpreadsheetApp.getUi().createMenu('Postres')
+    .addItem('Configurar y ver clave', 'mostrarClave')
+    .addToUi();
+}
+
+/** Crea lo que falte y muestra la clave en una ventana, lista para copiar. */
+function mostrarClave() {
+  const clave = configurar();
+  SpreadsheetApp.getUi().alert('Clave de acceso de la app',
+    clave + '\n\nCópiala y pégala en Ajustes de la app, en "Clave de acceso".\n' +
+    'No es el ID de la implementación: es este código de 20 caracteres.',
+    SpreadsheetApp.getUi().ButtonSet.OK);
+}
 
 /* ---------- Configuración inicial ---------- */
 

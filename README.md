@@ -17,7 +17,7 @@ App para capturar desde el celular la venta de postres, las compras de insumos, 
 
 1. Crea una hoja de cálculo nueva en tu Google Drive.
 2. En la hoja: **Extensiones → Apps Script**. Borra lo que haya y pega el contenido completo de `Code.gs`.
-3. Ejecuta la función **`configurar`** y acepta los permisos. Crea todas las pestañas, la pestaña **Cuenta** y la clave de acceso (la ves en **Ver → Registros**).
+3. Guarda, regresa a la hoja y recárgala. En el menú **Postres → Configurar y ver clave** acepta los permisos: crea todas las pestañas, la pestaña **Cuenta** y te muestra la **clave de acceso** (un código de 20 caracteres; no es el ID de la implementación).
 4. **Implementar → Nueva implementación → Aplicación web**. Ejecutar como: *Yo*. Quién tiene acceso: *Cualquier persona*. Copia la URL que termina en `/exec`.
 5. En GitHub: **Settings → Pages → Deploy from a branch → main / root**. La app queda en `https://<usuario>.github.io/postres_app/`.
 6. Abre la app en el celular, toca el engrane y pega la **URL** y la **clave**. Toca *Guardar y probar conexión*.
