@@ -1,5 +1,5 @@
 // Permite abrir la app sin señal: primero intenta la red y, si falla, usa la última copia guardada.
-const CACHE = 'postres-v1';
+const CACHE = 'postres-v2';
 const ARCHIVOS = ['./', './index.html', './manifest.json', './icon.png'];
 self.addEventListener('install', e => { e.waitUntil(caches.open(CACHE).then(c => c.addAll(ARCHIVOS)).then(() => self.skipWaiting())); });
 self.addEventListener('activate', e => {

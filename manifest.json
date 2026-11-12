@@ -1,7 +1,7 @@
 {
   "name": "Postres",
   "short_name": "Postres",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "start_url": "./index.html",
   "display": "standalone",
   "orientation": "portrait",
